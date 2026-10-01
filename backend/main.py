@@ -1,22 +1,20 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+from feedback_routes import router as feedback_router
+from openai import OpenAI
+from dotenv import load_dotenv
+import os
 
 app = FastAPI(title="AI Text Assistant API")
+app.include_router(feedback_router)
 
 class GenerateRequest(BaseModel):
     prompt: str
 
 class GenerateResponse(BaseModel):
     response: str
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-from openai import OpenAI
-from dotenv import load_dotenv
-import os
 
 load_dotenv()
-
-app = FastAPI(title="AI Text Assistant API")
 
 API_KEY = os.getenv("OPENROUTER_API_KEY")
 

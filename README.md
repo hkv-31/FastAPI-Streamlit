@@ -214,8 +214,16 @@ __pycache__/
 
 Never push your API key to a public repository.
 
-## Conclusion
+## Feedback Loop
 
-This project demonstrates a complete local AI application workflow: Streamlit collects the user's prompt, FastAPI exposes the backend API, OpenRouter connects the application to an LLM, and the generated response is returned to the Streamlit UI.
+The application includes a feedback module that allows users to provide feedback on AI-generated responses.
 
-The project provides a foundation for building larger AI applications with a separate API layer and user-facing interface.
+### Feedback Features
+
+- Users can rate an AI response as **positive** or **negative**.
+- Users can optionally provide additional comments.
+- Feedback is stored in `feedback.json` along with the prompt, response, rating, comment, and timestamp.
+- The `/feedback/stats` endpoint provides basic feedback statistics such as total, positive, and negative feedback.
+- The Streamlit frontend sends submitted feedback to the FastAPI backend through the `/feedback` API endpoint.
+
+This feedback can be used to understand user satisfaction and identify areas for improving the AI application.
