@@ -2,3 +2,5 @@
 .env
 __pycache__/
 *.pyc
+request.json
+feedback.json

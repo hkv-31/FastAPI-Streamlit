@@ -1,0 +1,9 @@
+test_case,request,expected_status,actual_status,result
+Health without API key,GET /health,200,,
+Generate without API key,POST /generate,401,,
+Generate with invalid API key,POST /generate,401,,
+Generate with valid API key,POST /generate,200,,
+Feedback without API key,POST /feedback,401,,
+Feedback stats without API key,GET /feedback/stats,401,,
+Generate within rate limit,10 requests/minute,200,,
+Generate over rate limit,11th request within minute,429,,
